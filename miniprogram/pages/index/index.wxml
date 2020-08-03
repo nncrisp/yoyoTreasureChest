@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 形状小制作 -->
+  <view class="shapelab">
+    <view class="shapelab-text" bindtap="onTapShapelab">
+      <text>形状小制作</text>
+    </view>
+  </view>
+  <!--
+  <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    <view class="uploader-container" wx:if="{{imgUrl}}">
+      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+    </view>
+  </view>
+-->
+</view>

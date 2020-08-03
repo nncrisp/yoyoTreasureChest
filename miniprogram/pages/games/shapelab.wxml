@@ -1,0 +1,31 @@
+<!--pages/games/shapelab.wxml-->
+<view class="layout1">
+  <!--形状选择器-->
+  <picker bindchange="setShape" value="{{shapeIndex}}" range="{{shapeArray}}">
+      <button class="btn1" style="background-color:chartreuse">形状(Shape): {{shape}}</button>
+  </picker>
+  <view class="layout2">
+    <!--颜色选择器-->
+    <view class="area2_1">
+      <button wx:for="{{colorArray}}" wx:key="*this" id="{{item}}" class="btn2" style="background-color:{{item}}" bindtap="setColor"></button>
+      <button class="btn3" style="background-color:{{colorValue}}">
+        <text style="color:{{textColor}}">{{colorValue}}</text>
+      </button>
+    </view>
+    <view class="layout1">
+      <!--绘图按钮-->
+      <view class="layout3">
+        <button id="paint" class="btn4" plain="true" bindtap="drawShape">
+          <image class="img1" src="/images/pencil.png"></image>
+        </button>
+        <button id="clear" class="btn4" plain="true" bindtap="clearShape">
+          <image class="img1" src="/images/eraser.png"></image>
+        </button>
+      </view>
+      <!--绘图区域-->
+      <view class="layout4">
+        <canvas canvas-id="myCanvas" class="cvs1"></canvas>
+      </view>
+    </view>
+  </view>
+</view>

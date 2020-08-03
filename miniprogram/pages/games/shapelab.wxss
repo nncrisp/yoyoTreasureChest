@@ -1,0 +1,69 @@
+/* pages/games/shapelab.wxss */
+.layout1 {
+  display:block;
+  flex-direction:column;
+  padding:20rpx;
+}
+
+.btn1 {
+  padding:10rpx;
+  font-size:small;
+}
+
+.layout2 {
+  display:flex;
+  flex-direction:row;
+  padding:20rpx;
+}
+
+.area2_1 {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  width:150rpx;
+}
+
+.btn2 {
+  border-radius:30rem;
+  padding:20rpx;
+  width:20rpx;
+  height:20rpx;
+  border-color:black;
+  border-style:solid;
+}
+
+.layout3 {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:center;
+  height:100rpx;
+  width:520rpx;
+}
+
+.btn3 {
+  padding:5rpx;
+  font-size:small;
+  width:150rpx;
+}
+.btn4 {
+  height:80rpx;
+}
+
+.img1 {
+  height:75rpx;
+  width:75rpx;
+}
+
+.layout4 {
+  display:block;
+  width:520rpx;
+}
+
+.cvs1 {
+  height:520rpx;
+  width:520rpx;
+  border-color:chartreuse;
+  border-style:dashed;
+  background-color:gainsboro;
+}
