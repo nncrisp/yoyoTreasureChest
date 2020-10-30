@@ -1,0 +1,34 @@
+/* pages/musics/metronome.wxss */
+.yoyo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.config {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+.config>text{
+  font-size: 400rpx;
+  font-weight: bolder;
+  font-stretch: extra-expanded;
+  text-align: center;
+}
+
+.config_horizontal{
+  display: flex;
+  flex-flow: row;
+}
+
+.bpm_slider {
+  justify-content: flex-start;
+}

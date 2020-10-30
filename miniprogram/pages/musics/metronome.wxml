@@ -1,0 +1,21 @@
+<!--pages/musics/metronome.wxml-->
+<view class = "yoyo">
+  <div class = "config">
+      <p>四分音符每分钟节拍数(BPM)</p>
+  </div>
+  <div class = "bpm_slider">
+    <slider min = "{{minbpm}}" max = "{{maxbpm}}" value = "{{bpm}}" show-value = "true" bindchange = "setBpm"/>
+  </div>
+  <div class = "config">
+    <picker value = "{{value}}" range = "{{range}}" bindchange = "bindConfigChange">
+      <button>拍号(Note) {{note}}</button>
+    </picker>
+  </div>
+  <div class = "config_horizontal">
+    <button disabled = "{{startStatus}}" bindtap="playAudioChangeColor">开始(Start)</button>
+    <button disabled = "{{stopStatus}}" bindtap="stopAudioResetColor">停止(Stop)</button>
+  </div>
+  <div class="config">
+      <text style = "color:{{currentColor}}">YO</text>
+  </div>
+</view>

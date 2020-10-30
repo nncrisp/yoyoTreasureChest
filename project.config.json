@@ -6,11 +6,25 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wxf44e0fda5460c546",
 	"projectname": "yoyotreasurechest",
-	"libVersion": "2.9.4",
+	"libVersion": "2.12.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

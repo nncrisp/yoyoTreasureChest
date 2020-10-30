@@ -15,11 +15,23 @@ Page({
   onShareAppMessage: function () {
   },
   
-  onTapShapelab: function() {
+  onTapMaths: function(){
     wx.navigateTo({
-      url:'/pages/games/shapelab',
+      url:'/pages/games/maths'
     })
   },
+
+  onTapShapelab: function() {
+    wx.navigateTo({
+      url:'/pages/games/shapelab'
+    })
+  },
+
+  onTapMetronome: function() {
+    wx.navigateTo({
+      url:'/pages/musics/metronome'
+    })
+  }
 /*
   onLoad: function() {
     if (!wx.cloud) {

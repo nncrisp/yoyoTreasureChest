@@ -7,7 +7,7 @@ page {
   justify-content: flex-start;
 }
 /**,.userinfo... **/
-.shapelab {
+.navigation {
   margin-top: 40rpx;
   height: 140rpx;
   width: 100%;
@@ -46,7 +46,7 @@ page {
 }
 */
 /*.uploader, .tunnel*/
-.shapelab {
+.navigation {
   height: auto;
   padding: 0 0 0 40rpx;
   flex-direction: column;
@@ -55,7 +55,7 @@ page {
 }
 
 /*.uploader-text, .tunnel-text */
-.shapelab-text {
+.navigation-text {
   width: 100%;
   line-height: 52px;
   font-size: 34rpx;
