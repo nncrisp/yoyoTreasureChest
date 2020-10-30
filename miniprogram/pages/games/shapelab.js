@@ -19,7 +19,7 @@ Page({
     })
   },
 
-  onReady:function(e){
+  onReady:function(){
     context=wx.createCanvasContext('myCanvas')
   },
   

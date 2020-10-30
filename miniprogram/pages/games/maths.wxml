@@ -1,0 +1,49 @@
+<!--miniprogram/pages/games/maths.wxml-->
+<view class="layout1" wx:if="{{!showResult}}">
+    <progress id="prgs" percent="{{number*100/totalNum}}" activeColor="green" backgroundColor="lightgrey" active="false" border-radius="10rpx" border-color="black" stroke-width="20rpx">
+      <text>{{number}}/{{totalNum}}</text>
+    </progress>
+  <view class="layout2">
+    <text style="font-size:120rpx">{{question}}</text>
+    <view class="layout3">
+      <input class="input" type="number" placeholder="✏️______" maxlength="6" value="{{result}}" focus="{{focus}}" disabled="{{isDisabled}}" bindinput="setResult" bindconfirm="checkResult"></input> <!--✍✎✐✏📝-->
+      <view class="layout2">
+        <button id="clear" class="btn" plain="true" disabled="{{isDisabled}}" bindtap="clearResult">
+          <image class="img" src="/images/Clear.png" mode="widthFix"></image>
+        </button>
+        <button id="OK" class="btn" plain="true" disabled="{{isDisabled}}" bindtap="checkResult">
+          <image class="img" src="/images/OK.png" mode="widthFix"></image>
+        </button>
+      </view>
+    </view>  
+  </view>
+  <view class="layout2">
+    <image id="correct" class="img1" src="/images/Correct.png" mode="aspectFit" wx:if="{{isCorrect==1}}"></image>
+    <image id="wrong" class="img1" src="/images/Wrong.png" mode="aspectFit" wx:if="{{isCorrect==0}}"></image>
+  </view>
+  <view class="layout2">
+    <button id="start" class="btn1" plain="true" wx:if="{{isShown==0}}" bindtap="newQuestion">
+          <image src="/images/Start.png" class="img2" mode="aspectFit"></image>
+    </button>
+    <button id="next" class="btn1" plain="true" wx:if="{{isShown==1}}" bindtap="newQuestion">
+          <image src="/images/Next.png" class="img2" mode="aspectFit"></image>
+    </button>
+    <button id="finish" class="btn1" plain="true" wx:if="{{isShown==2}}" bindtap="showResultView">
+          <image src="/images/Finish.png" class="img2" mode="aspectFit"></image>
+    </button>
+  </view>
+</view>
+<view class="layout1" wx:if="{{showResult}}">
+  <view class="layout2" style="flex:0 0 100rpx;">
+    <text style="font-size:60rpx;text-align:center;">答 案 表</text>
+  </view>
+  <view class="layout1" style="flex:1;position:relative;">
+    <scroll-view class="layout4" scroll-y style="height:{{result_height}}px">
+      <view class="layout5" wx:if="{{showResult}}" wx:for="{{results}}" wx:key="*this" wx:for-item="item">
+        <image src="/images/golden_star.png" class="img3" mode="aspectFit" wx:if="{{item.correct==1}}"></image>
+        <image src="/images/grey_star.png" class="img3" mode="aspectFit" wx:if="{{item.correct==0}}"></image>
+        <text style="font-size:60rpx">{{item.str}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
