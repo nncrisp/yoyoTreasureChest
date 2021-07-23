@@ -1,6 +1,10 @@
 <!--index.wxml-->
 <view class="container">
   <view class="navigation">
+    <!--YOYO私房菜-->
+    <view class="navigation-text" bindtap="onTapMenu">
+      <text>YOYO私房菜</text>
+    </view>
     <!--算术小练习-->
     <view class="navigation-text" bindtap="onTapMaths">
       <text>算术小练习</text>
