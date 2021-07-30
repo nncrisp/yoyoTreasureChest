@@ -15,12 +15,6 @@ Page({
   onShareAppMessage: function () {
   },
   
-  onTapMenu: function(){
-    wx.navigateTo({
-      url:'/pages/tools/menu',
-    })
-  },
-
   onTapMaths: function(){
     wx.navigateTo({
       url:'/pages/games/maths'
