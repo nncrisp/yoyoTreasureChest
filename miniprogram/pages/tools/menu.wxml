@@ -1,2 +1,24 @@
 <!--pages/tools/menu.wxml-->
-<text>pages/tools/menu.wxml</text>
+<view class="layout_vertical" wx:if="{{!showResult}}">
+  <view class="layout_horizontal">
+    <checkbox-group class="layout_vertical" bindchange="checkStyle">
+      <block wx:for="{{styles}}">
+        <checkbox style="margin:20rpx;font-size:40rpx;" value='{{item.name}}'>{{item.name}}
+        </checkbox>
+      </block>
+    </checkbox-group>
+    <checkbox-group class="layout_vertical" bindchange="checkMeal">
+      <block wx:for="{{meals}}">
+        <checkbox style="margin:20rpx;font-size:40rpx;" value="{{item.name}}">{{item.name}}
+        </checkbox>
+      </block>
+    </checkbox-group>
+  </view>
+  <view class="layout_horizontal">
+    <button class="btn">确定</button>
+    <button class="btn">重选</button>
+  </view>
+</view>
+<view wx:if="{{showResult}}">
+
+</view>

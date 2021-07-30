@@ -1,1 +1,17 @@
 /* pages/tools/menu.wxss */
+.layout_vertical {
+  display:flex;
+  flex-direction:column;
+}
+.layout_horizontal {
+  display:flex;
+  flex-direction: row;
+  justify-content:space-around;
+  margin: 30rpx;
+}
+.btn {
+  width: 280rpx;
+  border-radius:10rpx;
+  background:-webkit-gradient(linear, 100% 0%, 0% 100%, from(limegreen),to(green));
+  color: white;
+}
