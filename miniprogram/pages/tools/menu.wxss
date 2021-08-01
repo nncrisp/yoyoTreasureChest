@@ -15,3 +15,15 @@
   background:-webkit-gradient(linear, 100% 0%, 0% 100%, from(limegreen),to(green));
   color: white;
 }
+.round_horizontal {
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.img {
+  border-radius:50%;
+  width:280rpx;
+  height:280rpx;
+  margin: 20rpx;
+}

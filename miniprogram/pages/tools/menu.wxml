@@ -15,10 +15,10 @@
     </checkbox-group>
   </view>
   <view class="layout_horizontal">
-    <button class="btn">确定</button>
+    <button class="btn" bindtap="getData">确定</button>
     <button class="btn">重选</button>
-  </view>
+  </view> 
 </view>
-<view wx:if="{{showResult}}">
-
+<view class="round_horizontal" wx:for="{{menus}}" wx:key="key">
+  <image class="img" src="{{item.picture}}"></image>
 </view>
