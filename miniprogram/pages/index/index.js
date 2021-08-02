@@ -40,12 +40,15 @@ Page({
   },
 
   onLoad: function(){
+    wx.setNavigationBarTitle({
+      title: 'YOYO小宝箱'
+    })
     wx.showShareMenu({
       withShareTicket:true,
       menus:['shareAppMessage','shareTimeline']
       })
   }
-
+})
 /*
   onLoad: function() {
     if (!wx.cloud) {
@@ -154,4 +157,3 @@ Page({
     })
   },
 */
-})

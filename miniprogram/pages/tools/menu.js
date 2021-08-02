@@ -189,9 +189,7 @@ Page({
    * Lifecycle function--Called when page unload
    */
   onUnload: function () {
-    wx.setNavigationBarTitle({
-      title: 'YOYO私房菜'
-    })
+  
   },
 
   /**
