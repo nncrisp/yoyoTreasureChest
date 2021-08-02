@@ -1,24 +1,43 @@
 <!--pages/tools/menu.wxml-->
-<view class="layout_vertical" wx:if="{{!showResult}}">
+<view class="layout_vertical" wx:if="{{!showRecipeDetail}}">
   <view class="layout_horizontal">
     <checkbox-group class="layout_vertical" bindchange="checkStyle">
       <block wx:for="{{styles}}">
-        <checkbox style="margin:20rpx;font-size:40rpx;" value='{{item.name}}'>{{item.name}}
+        <checkbox style="margin:20rpx;font-size:40rpx;" value="{{item.name}}" checked="{{item.status}}">{{item.name}}
         </checkbox>
       </block>
     </checkbox-group>
     <checkbox-group class="layout_vertical" bindchange="checkMeal">
       <block wx:for="{{meals}}">
-        <checkbox style="margin:20rpx;font-size:40rpx;" value="{{item.name}}">{{item.name}}
+        <checkbox style="margin:20rpx;font-size:40rpx;" value="{{item.name}}" checked="{{item.status}}">{{item.name}}
         </checkbox>
       </block>
     </checkbox-group>
   </view>
   <view class="layout_horizontal">
     <button class="btn" bindtap="getData">确定</button>
-    <button class="btn">重选</button>
+    <button class="btn" bindtap="resetData">重选</button>
   </view> 
+  <view class="round_horizontal">
+    <view class="round_vertical" wx:for="{{menus}}" wx:key="key" bindtap="showRecipe" data-_id="{{item._id}}">
+      <image class="img" src="{{item.picture}}"></image>
+      <text style="font-size:40rpx;">{{item.name}}</text>
+    </view>
+  </view>
 </view>
-<view class="round_horizontal" wx:for="{{menus}}" wx:key="key">
-  <image class="img" src="{{item.picture}}"></image>
+<view class="layout_vertical" style="margin-top:20rpx;" wx:if="{{showRecipeDetail}}">
+  <view class="layout1_horizontal" style="margin-left:40rpx;margin-right:40rpx;">
+    <view class="layout_vertical">
+      <text class="txt">名称：{{recipe_detail[0].name}}</text>
+      <text class="txt">类别：{{recipe_detail[0].style}}</text>
+      <text class="txt">餐食：{{recipe_detail[0].meal}}</text>
+    </view>
+    <image class="img1" src="{{recipe_detail[0].picture}}"></image>
+  </view>
+  <view class="layout_vertical" style="margin-left:40rpx;margin-right:40rpx;">
+    <text class="txt">原料：{{recipe_detail[0].material}}</text>
+    <text class="txt">调料：{{recipe_detail[0].seasoning}}</text>
+    <text class="txt">做法：{{recipe_detail[0].recipe}}</text>
+  <button class="btn" style="margin:30rpx;align-self:center;" bindtap="showMenu">返回上一页</button>
+  </view>
 </view>

@@ -266,6 +266,10 @@ Page({
     wx.setNavigationBarTitle({
       title: 'YOYO节拍器'
     })
+    wx.showShareMenu({
+      withShareTicket:true,
+      menus:['shareAppMessage','shareTimeline']
+      })
     audioStrong.src = this.data.audioSrc[0];
     audioMedium.src = this.data.audioSrc[1];
     audioWeak.src = this.data.audioSrc[2];

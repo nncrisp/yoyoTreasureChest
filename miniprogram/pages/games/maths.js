@@ -146,6 +146,10 @@ Page({
     wx.setNavigationBarTitle({
       title: '算术小练习'
     })
+    wx.showShareMenu({
+      withShareTicket:true,
+      menus:['shareAppMessage','shareTimeline']
+      })
     var height = wx.getSystemInfoSync().windowHeight
     height = height - 100
     this.setData({

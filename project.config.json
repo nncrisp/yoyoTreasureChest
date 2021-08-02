@@ -38,7 +38,7 @@
   },
   "appid": "wxf44e0fda5460c546",
   "projectname": "yoyotreasurechest",
-  "libVersion": "2.12.2",
+  "libVersion": "2.19.0",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",

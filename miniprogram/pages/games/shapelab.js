@@ -17,6 +17,10 @@ Page({
     wx.setNavigationBarTitle({
       title: '形状小制作'
     })
+    wx.showShareMenu({
+      withShareTicket:true,
+      menus:['shareAppMessage','shareTimeline']
+      })
   },
 
   onReady:function(){
