@@ -37,7 +37,15 @@ Page({
     wx.navigateTo({
       url:'/pages/musics/metronome'
     })
+  },
+
+  onLoad: function(){
+    wx.showShareMenu({
+      withShareTicket:true,
+      menus:['shareAppMessage','shareTimeline']
+      })
   }
+
 /*
   onLoad: function() {
     if (!wx.cloud) {
