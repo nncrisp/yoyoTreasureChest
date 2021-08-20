@@ -15,6 +15,12 @@ Page({
   onShareAppMessage: function () {
   },
   
+  onTapAirconditioner: function(){
+    wx.navigateTo({
+      url: '/pages/games/airconditioner',
+    })
+  },
+
   onTapMenu: function(){
     wx.navigateTo({
       url:'/pages/tools/menu',

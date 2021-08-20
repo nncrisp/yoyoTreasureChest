@@ -4,7 +4,8 @@
     "pages/games/shapelab",
     "pages/musics/metronome",
     "pages/games/maths",
-    "pages/tools/menu"
+    "pages/tools/menu",
+    "pages/games/airconditioner"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
