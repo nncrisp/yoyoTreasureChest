@@ -1,2 +1,34 @@
 <!--pages/games/airconditioner.wxml-->
-<text>pages/games/airconditioner.wxml</text>
+<view class="layout1">
+  <view class="layout2">
+    <button>开关</button>
+    <button>模式</button>
+  </view>
+  <view class="layout2">
+    <button>+1度</button>
+    <button>-1度</button>
+  </view>
+  <view class="layout2">
+    <button>+0.1度</button>
+    <button>-0.1度</button>
+  </view>
+  <view class="layout2">
+    <button>上下扫</button>
+    <button>左右扫</button>
+  </view>
+  <button>上下左右扫</button>
+  <button>风速</button>
+  <view class="layout2">
+    <button>睡眠</button>
+    <button>自然风</button>
+    <button>清醒</button>
+  </view>
+  <button>辅热</button>
+  <button>温度显示</button>
+  <view class="layout2">
+      <button>°C</button>
+      <button>°F</button>
+  </view>
+  <button>定时开/关</button>
+  <button>锁定</button>
+</view>
