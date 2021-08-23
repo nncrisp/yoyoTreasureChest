@@ -1,5 +1,8 @@
 <!--pages/games/airconditioner.wxml-->
 <view class="layout1">
+  <view class="layout3">
+    <canvas class="cvs" canvas-id="screen"></canvas>
+  </view>
   <view class="layout2">
     <button>开关</button>
     <button>模式</button>

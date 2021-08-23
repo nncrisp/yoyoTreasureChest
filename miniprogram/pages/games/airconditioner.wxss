@@ -9,3 +9,14 @@
   flex-direction: row;
   justify-content: center;
 }
+.layout3 {
+  display: block;
+  width: 500rpx;
+}
+.cvs {
+  height: 300rpx;
+  width: 500rpx;
+  border-radius: 4rpx;
+  border-color:cyan;
+  background-color:cyan;
+}
