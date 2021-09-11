@@ -17,6 +17,6 @@
   height: 300rpx;
   width: 500rpx;
   border-radius: 4rpx;
-  border-color:cyan;
-  background-color:cyan;
+  border-color:cornsilk;
+  background-color:cornsilk;
 }
