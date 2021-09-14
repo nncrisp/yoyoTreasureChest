@@ -2,22 +2,10 @@
 <view class="layout1">
   <view class="layout3">
     <view class="layout1">
-      <image class="img1" src="/images/循环风.png"></image>
-      <image class="img1" src="/images/制冷.png"></image>
-      <image class="img1" src="/images/制热.png"></image>
-      <image class="img1" src="/images/送风.png"></image>
-      <image class="img1" src="/images/除湿.png"></image>
-      <image class="img1" src="/images/加湿.png"></image>
-      <image class="img1" src="/images/清风.png"></image>
-      <image class="img1" src="/images/柔风.png"></image>
+      <image class="img1" src="{{modes[current_mode_id].img}}"></image>
+      <text>{{modes[current_mode_id].name}}</text>
     </view>
-  </view>
-  <!--
-<canvas class="cvs" type="2d" canvas-id="screen">
-   
-  </canvas>
-  -->
-  
+  </view> 
   <view class="layout2">
     <button>开关</button>
     <view class="layout1">
@@ -28,7 +16,7 @@
       <button>+0.1度</button>
       <button>-0.1度</button>
     </view>
-    <button>模式</button>
+    <button bindtap="onChangeMode">模式</button>
   </view>
   <view class="layout2">
     <button>上下扫</button>
@@ -57,6 +45,7 @@
   </view>
   <view class="layout2">
     <button>确定</button>
+    <button>转换</button>
     <button>保密</button>
   </view>
 </view>
