@@ -1,27 +1,39 @@
 <!--pages/games/airconditioner.wxml-->
+<wxs module="fix_digital">
+  var toFixed = function (value) {
+  return value.toFixed(1);
+  }
+  module.exports = {
+  toFixed: toFixed
+  }
+</wxs>
 <view class="layout1">
   <view class="layout3">
-    <view class="layout1">
-      <image class="img1" src="{{modes[current_mode_id].img}}"></image>
-      <text>{{modes[current_mode_id].name}}</text>
+    <view class="layout2">
+      <view class="layout1">
+        <image class="img1" src="{{modes[current_mode_id].img}}"></image>
+        <text>{{modes[current_mode_id].name}}</text>
+      </view>
+      <text style="font-size:150rpx">{{fix_digital.toFixed(current_tmp)}}</text>
     </view>
+    
   </view> 
   <view class="layout2">
     <button>开关</button>
     <view class="layout1">
-      <button>+1度</button>
-      <button>-1度</button>
+      <button bindtap="onChangeTmp" data-id='0'>+1度</button>
+      <button bindtap="onChangeTmp" data-id='1'>-1度</button>
     </view>
     <view class="layout1">
-      <button>+0.1度</button>
-      <button>-0.1度</button>
+      <button bindtap="onChangeTmp" data-id='2'>+0.1度</button>
+      <button bindtap="onChangeTmp" data-id='3'>-0.1度</button>
     </view>
     <button bindtap="onChangeMode">模式</button>
   </view>
   <view class="layout2">
-    <button>上下扫</button>
-    <button>上下左右扫</button>
-    <button>左右扫</button>
+    <button>上下风</button>
+    <button>上下左右风</button>
+    <button>左右风</button>
   </view>
   <view class="layout2">
     <button>睡眠</button>
