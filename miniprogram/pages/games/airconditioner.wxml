@@ -14,7 +14,8 @@
         <image class="img1" src="{{modes[current_mode_id].img}}"></image>
         <text>{{modes[current_mode_id].name}}</text>
       </view>
-      <text style="font-size:150rpx">{{fix_digital.toFixed(current_tmp)}}</text>
+      <text style="font-size:150rpx" wx:if="{{isC==true}}">{{fix_digital.toFixed(current_tmp)}}°C</text>
+      <text style="font-size:150rpx" wx:if="{{isC==false}}">{{fix_digital.toFixed(current_tmpf)}}°F</text>
     </view>
     
   </view> 
@@ -47,8 +48,8 @@
   </view>
   <view class="layout2">
     <button>温度显示</button>
-    <button>°C</button>
-    <button>°F</button>  
+    <button bindtap="onChangeUnit" data-unit='C'>°C</button>
+    <button bindtap="onChangeUnit" data-unit='F'>°F</button>  
   </view>
   <view class="layout2">
     <button>定时开</button>

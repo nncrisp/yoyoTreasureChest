@@ -11,7 +11,7 @@
 }
 .layout3 {
   display: block;
-  width: 500rpx;
+  width: 750rpx;
   height:400rpx;
   background-color:cornsilk;
 }
