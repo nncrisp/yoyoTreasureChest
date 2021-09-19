@@ -19,7 +19,12 @@ Page({
     tmp_precision: [1, -1, 0.1, -0.1],
     current_tmp: 25,
     current_tmpf: 77,
-    isC: true //true - 摄氏度, false - 华氏度
+    isC: true, //true - 摄氏度, false - 华氏度
+    canshow_sleep_wakeup: false, //默认循环风模式下不显示sleep/wakeup图标
+    isShown: 0, //记录当前是否显示了sleep/wakeup图标: 0 - 当前没显示，1-当前显示sleep, 2-当前显示wakeup
+    sleep_wakeup_img_src: "", //默认不显示，故sleep/wakeup image source为空。
+    isAutoWind: true,
+    current_wind: 0 //风速取值范围：0~33，其中0表示自动，1~33表示不同的档位。
   },
 
   //摁”模式“键切换各种模式
@@ -27,9 +32,20 @@ Page({
     this.setData({
       current_mode_id: this.data.current_mode_id < 7 ? this.data.current_mode_id + 1 : 0,
     })
+    var id = this.data.current_mode_id
     this.setData({
       current_tmp: this.data.modes[this.data.current_mode_id].dft_tmp,
       current_tmpf: this.data.modes[this.data.current_mode_id].dft_tmpf
+    })
+    if (id == 0 || id == 4 || id == 5){
+      this.setData({
+        canshow_sleep_wakeup: false,
+        isShown: 0,
+        sleep_wakeup_img_src: ""
+      })
+    }
+    else this.setData({
+      canshow_sleep_wakeup: true
     })
   },
 
@@ -50,7 +66,7 @@ Page({
       max_tmp = this.data.modes[this.data.current_mode_id].max_tmp*1.8+32
       min_tmp = this.data.modes[this.data.current_mode_id].min_tmp*1.8+32
     }
-    console.log("current tmp ",this.data.current_tmp," current tmpf ",this.data.current_tmpf, "tmp ",tmp," new_tmp ",new_tmp," min_tmp ",min_tmp," max_tmp ",max_tmp)
+  //  console.log("current tmp ",this.data.current_tmp," current tmpf ",this.data.current_tmpf, "tmp ",tmp," new_tmp ",new_tmp," min_tmp ",min_tmp," max_tmp ",max_tmp)
     if (new_tmp > max_tmp || new_tmp < min_tmp){
         new_tmp = this.data.isC == true ? this.data.current_tmp : this.data.current_tmpf
     }
@@ -84,6 +100,67 @@ Page({
     }
     else console.log("单位错误：", unit)
   },
+
+  //摁“睡眠”或“清醒”键，在某些特定模式下显示睡眠图标（月亮）或清醒图标（眼睛）
+  onSleepOrWakeup: function(e){
+    var i = e.currentTarget.dataset.i
+    if (this.data.canshow_sleep_wakeup == true){
+      if (i=="sleep"){
+        if (this.data.isShown == 0 || this.data.isShown == 2){
+          this.setData({
+            isShown: 1,
+            sleep_wakeup_img_src:"/images/sleep.png"
+          })
+        }
+        else if (this.data.isShown == 1){
+          this.setData({
+            isShown: 0,
+            sleep_wakeup_img_src: ""
+          })
+        }
+        else {
+          console.log("isShown赋值错误：",this.data.isShown)
+        }
+      }
+      else if (i=="wakeup"){
+        if (this.data.isShown == 0 || this.data.isShown == 1){
+          this.setData({
+            isShown: 2,
+            sleep_wakeup_img_src: "/images/wakeup.png"
+          })
+        }
+        else if (this.data.isShown == 2){
+          this.setData({
+            isShown: 0,
+            sleep_wakeup_img_src: ""
+          })
+        }
+        else {
+          console.log("isShown赋值错误：",this.data.isShown)
+        }
+      }
+    }
+    else this.setData({
+      sleep_wakeup_img_src: ""
+    }) 
+  },
+
+  onChangeWind: function(){
+    if(this.data.current_wind >=0 && this.data.current_wind < 33){
+      this.setData({
+        isAutoWind: false,
+        current_wind: this.data.current_wind + 1
+      })
+    }
+    else if(this.data.current_wind == 33){
+      this.setData({
+        isAutoWind: true,
+        current_wind: 0
+      })
+    }
+    else console.log("错误的风速：",this.data.current_wind)
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
