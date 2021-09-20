@@ -24,7 +24,11 @@ Page({
     isShown: 0, //记录当前是否显示了sleep/wakeup图标: 0 - 当前没显示，1-当前显示sleep, 2-当前显示wakeup
     sleep_wakeup_img_src: "", //默认不显示，故sleep/wakeup image source为空。
     isAutoWind: true,
-    current_wind: 0 //风速取值范围：0~33，其中0表示自动，1~33表示不同的档位。
+    current_wind_num: 0, //风速取值范围：0~33，其中0表示自动，1~33表示不同的档位。
+    current_wind: "", //风速的字符表示形式,风速=0时不显示风速。
+    sterilize: "&emsp;&emsp;", //是否开启除菌：blank placeholders - 不开启，"除菌" - 开启
+    save_energy: "&emsp;&emsp;", //是否开启省电：blank placeholders - 不开启，”省电“ - 开启
+    natural_wind: "&emsp;&emsp;&emsp;&emsp;" //是否开启自然风：blank placeholders - 不开启，”自然风开“
   },
 
   //摁”模式“键切换各种模式
@@ -66,7 +70,6 @@ Page({
       max_tmp = this.data.modes[this.data.current_mode_id].max_tmp*1.8+32
       min_tmp = this.data.modes[this.data.current_mode_id].min_tmp*1.8+32
     }
-  //  console.log("current tmp ",this.data.current_tmp," current tmpf ",this.data.current_tmpf, "tmp ",tmp," new_tmp ",new_tmp," min_tmp ",min_tmp," max_tmp ",max_tmp)
     if (new_tmp > max_tmp || new_tmp < min_tmp){
         new_tmp = this.data.isC == true ? this.data.current_tmp : this.data.current_tmpf
     }
@@ -146,19 +149,52 @@ Page({
   },
 
   onChangeWind: function(){
-    if(this.data.current_wind >=0 && this.data.current_wind < 33){
+    if(this.data.current_wind_num >=0 && this.data.current_wind_num < 33){
       this.setData({
         isAutoWind: false,
-        current_wind: this.data.current_wind + 1
+        current_wind_num: this.data.current_wind_num + 1
       })
     }
-    else if(this.data.current_wind == 33){
+    else if(this.data.current_wind_num == 33){
       this.setData({
         isAutoWind: true,
-        current_wind: 0
+        current_wind_num: 0
       })
     }
     else console.log("错误的风速：",this.data.current_wind)
+    if(this.data.current_wind_num >= 10 && this.data.current_wind_num<=33){
+      this.setData({
+        current_wind:this.data.current_wind_num.toString()
+      })
+    }
+    else if (this.data.current_wind_num > 0 && this.data.current_wind_num <=9){
+      var prefix = "&nbsp;"
+      this.setData({
+        current_wind: prefix.concat(this.data.current_wind_num.toString())
+      })
+      }
+      else this.setData({
+        current_wind: "&nbsp;&nbsp;"
+      })
+},
+
+  onSterilize: function(){
+    this.setData({
+      sterilize: this.data.sterilize == "&emsp;&emsp;"?"除菌":"&emsp;&emsp;"
+    })
+  },
+
+  onSaveEnergy: function(){
+    this.setData({
+      save_energy: this.data.save_energy == "&emsp;&emsp;"?"省电":"&emsp;&emsp;"
+    })
+  },
+
+  onNaturalWind: function(){
+    this.setData({
+      natural_wind: this.data.natural_wind == "&emsp;&emsp;&emsp;&emsp;"?"自然风开":"&emsp;&emsp;&emsp;&emsp;"
+    })
+    console.log("自然风：", this.data.natural_wind)
   },
 
   /**

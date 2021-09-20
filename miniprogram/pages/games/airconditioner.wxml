@@ -25,7 +25,10 @@
       <view class="layout2">
         <image class="img1" wx:if="{{isAutoWind==true}}" src="/images/movingfan.gif"></image>
         <image class="img1" wx:if="{{isAutoWind==false}}" src="/images/fan.png"></image>
-        <text style="font-size:80rpx" wx:if="{{current_wind!=0}}">{{current_wind}}</text>
+        <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{current_wind}}&nbsp;</text>
+        <text decode="{{true}}"space="{{true}}" style="font-size:40rpx">{{sterilize}}</text>
+        <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{save_energy}}&nbsp;</text>
+        <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{natural_wind}}</text>
       </view>
     </view>
   </view>
@@ -49,13 +52,14 @@
   </view>
   <view class="layout2">
     <button bindtap="onSleepOrWakeup" data-i="sleep">睡眠</button>
-    <button>自然风</button>
+    <button bindtap="onNaturalWind">自然风</button>
     <button bindtap="onSleepOrWakeup" data-i="wakeup">清醒</button>
   </view>
   <view class="layout2">
     <button bindtap="onChangeWind">风速</button>
     <button>辅热</button>
-    <button>除菌</button>
+    <button bindtap="onSterilize">除菌</button>
+    <button bindtap="onSaveEnergy">省电</button>
   </view>
   <view class="layout2">
     <button>温度显示</button>
