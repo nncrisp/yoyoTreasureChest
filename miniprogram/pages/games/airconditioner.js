@@ -28,7 +28,10 @@ Page({
     current_wind: "", //风速的字符表示形式,风速=0时不显示风速。
     sterilize: "&emsp;&emsp;", //是否开启除菌：blank placeholders - 不开启，"除菌" - 开启
     save_energy: "&emsp;&emsp;", //是否开启省电：blank placeholders - 不开启，”省电“ - 开启
-    natural_wind: "&emsp;&emsp;&emsp;&emsp;" //是否开启自然风：blank placeholders - 不开启，”自然风开“
+    natural_wind: "&emsp;&emsp;&emsp;&emsp;", //是否开启自然风：blank placeholders - 不开启，”自然风开“
+    current_wind_dir: "", //显示风向：blank - 不显示, 不为空时则为鞥想的图片路径
+    heat: "&emsp;&emsp;", //显示”辅热“或不显示，默认不显示
+    lock: "/images/unlock.png" //显示locked或unlocked的图片，默认为unlocked
   },
 
   //摁”模式“键切换各种模式
@@ -194,7 +197,37 @@ Page({
     this.setData({
       natural_wind: this.data.natural_wind == "&emsp;&emsp;&emsp;&emsp;"?"自然风开":"&emsp;&emsp;&emsp;&emsp;"
     })
-    console.log("自然风：", this.data.natural_wind)
+  },
+
+  onWindDirection: function(e){
+    var dir = e.currentTarget.dataset.dir
+    if (this.data.current_wind_dir == ""){
+      this.setData({
+        current_wind_dir: dir
+      })
+    }
+    else if (this.data.current_wind_dir == dir){
+      this.setData({
+        current_wind_dir: ""
+      })
+    }
+    else {
+      this.setData({
+        current_wind_dir: dir
+      })
+    }
+  },
+  //辅热
+  onHeat: function(){
+    this.setData({
+      heat: this.data.heat=="&emsp;&emsp;"?"辅热":"&emsp;&emsp;"
+    })
+  },
+  //锁定
+  onLock: function(){
+    this.setData({
+      lock: this.data.lock == "/images/unlock.png"?"/images/lock.png":"/images/unlock.png"
+    })
   },
 
   /**

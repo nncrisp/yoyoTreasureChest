@@ -10,6 +10,34 @@
 <view class="layout1">
 <!--遥控器屏幕-->
   <view class="layout3">
+    <view class="layout2">
+      <view class="layout1">
+        <image class="img1" src="{{modes[current_mode_id].img}}"></image>
+        <text>{{modes[current_mode_id].name}}</text>
+        <image class="img1" src="{{lock}}"></image>
+      </view>
+      <view class="layout1">
+        <view class="layout2">
+          <text style="font-size:150rpx" wx:if="{{isC==true}}">{{fix_digital.toFixed(current_tmp)}}</text>
+          <text style="font-size:105rpx" wx:if="{{isC==true}}">°C</text>
+          <text style="font-size:150rpx" wx:if="{{isC==false}}">{{fix_digital.toFixed(current_tmpf)}}</text>
+          <text style="font-size:105rpx" wx:if="{{isC==false}}">°F</text>
+          <image class="img1" src="{{sleep_wakeup_img_src}}"></image>
+        </view>
+        <view class="layout2">
+          <image class="img1" wx:if="{{isAutoWind==true}}" src="/images/movingfan.gif"></image>
+          <image class="img1" wx:if="{{isAutoWind==false}}" src="/images/fan.png"></image>
+          <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{current_wind}}&nbsp;</text>
+          <text decode="{{true}}"space="{{true}}" style="font-size:40rpx">{{sterilize}}</text>
+          <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{save_energy}}&nbsp;</text>
+          <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{natural_wind}}</text>
+          <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">&nbsp;{{heat}}</text>
+        </view>
+        <image class="img1" src="{{current_wind_dir}}"></image>
+      </view>
+    </view>
+  </view>
+<!--原先的屏幕
     <view class="layout1">
       <view class="layout2">
         <view class="layout1">
@@ -22,6 +50,7 @@
         <text style="font-size:105rpx" wx:if="{{isC==false}}">°F</text>
         <image class="img1" src="{{sleep_wakeup_img_src}}"></image>
       </view>
+      <image class="img1" src="{{lock}}"></image>
       <view class="layout2">
         <image class="img1" wx:if="{{isAutoWind==true}}" src="/images/movingfan.gif"></image>
         <image class="img1" wx:if="{{isAutoWind==false}}" src="/images/fan.png"></image>
@@ -29,9 +58,13 @@
         <text decode="{{true}}"space="{{true}}" style="font-size:40rpx">{{sterilize}}</text>
         <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{save_energy}}&nbsp;</text>
         <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">{{natural_wind}}</text>
+        <text decode="{{true}}" space="{{true}}" style="font-size:40rpx">&nbsp;{{heat}}</text>
       </view>
+      <image class="img1" src="{{current_wind_dir}}"></image>
     </view>
   </view>
+-->
+
  <!--遥控器按钮--> 
   <view class="layout2">
     <button>开关</button>
@@ -46,9 +79,9 @@
     <button bindtap="onChangeMode">模式</button>
   </view>
   <view class="layout2">
-    <button>上下风</button>
-    <button>上下左右风</button>
-    <button>左右风</button>
+    <button bindtap="onWindDirection" data-dir="/images/ud.png">上下风</button>
+    <button bindtap="onWindDirection" data-dir="/images/udlr.png">上下左右风</button>
+    <button bindtap="onWindDirection" data-dir="/images/lr.png">左右风</button>
   </view>
   <view class="layout2">
     <button bindtap="onSleepOrWakeup" data-i="sleep">睡眠</button>
@@ -57,7 +90,7 @@
   </view>
   <view class="layout2">
     <button bindtap="onChangeWind">风速</button>
-    <button>辅热</button>
+    <button bindtap="onHeat">辅热</button>
     <button bindtap="onSterilize">除菌</button>
     <button bindtap="onSaveEnergy">省电</button>
   </view>
@@ -68,7 +101,7 @@
   </view>
   <view class="layout2">
     <button>定时开</button>
-    <button>锁定</button>
+    <button bindtap="onLock">锁定</button>
     <button>定时关</button>
   </view>
   <view class="layout2">
