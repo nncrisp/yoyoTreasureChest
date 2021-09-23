@@ -55,6 +55,11 @@ Page({
       else this.setData({
         canshow_sleep_wakeup: true
       })
+      if (id != 2) {
+        this.setData({
+          heat:"&emsp;&emsp;"
+        })
+      }
     }
   },
 
@@ -237,10 +242,12 @@ Page({
   },
   //辅热
   onHeat: function(){
-    if(this.data.lock == "/images/unlock.png"){
-      this.setData({
-        heat: this.data.heat=="&emsp;&emsp;"?"辅热":"&emsp;&emsp;"
-      })
+    if(this.data.lock == "/images/unlock.png" && this.data.current_mode_id == 2){
+      if (this.data.current_mode_id == 2){
+        this.setData({
+          heat: this.data.heat=="&emsp;&emsp;"?"辅热":"&emsp;&emsp;"
+        })
+      }
     }
   },
   //锁定
