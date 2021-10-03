@@ -18,6 +18,13 @@
   background-color:cornsilk;
 }
 
+.layout4 {
+  display: block;
+  position: absolute;
+  top: 290rpx;
+  right: 80rpx;
+}
+
 .img1 {
   height:80rpx;
   width:80rpx;
