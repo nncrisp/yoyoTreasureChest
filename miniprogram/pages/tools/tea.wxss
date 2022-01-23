@@ -1,0 +1,41 @@
+/* pages/tools/tea.wxss */
+.btn{
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  width: 280rpx;
+  border-radius: 10rpx;
+  background: -webkit-gradient(linear, 100% 0%, 0% 100%, from(limegreen),to(green));
+  color: white;
+  text-align: center;  
+ }
+ .bubble{ 
+  position: relative;
+  overflow: hidden;
+ }
+ .bubble:after{
+  content: "";
+  background: #999;
+  position: absolute; 
+  width: 750rpx;
+  height: 750rpx;
+  left: calc(50% - 375rpx);
+  top: calc(50% - 375rpx);
+  opacity: 0;
+  margin: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.4s ease-in-out;
+ }
+ .bubble:active:after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+ }
+ .txt {
+   text-align:center;
+   font-size:100rpx;
+   background: linear-gradient(to right,green,limegreen);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+ }

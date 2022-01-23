@@ -12,7 +12,7 @@ Page({
       {name:"制热", img:"/images/air_warm.png", dft_tmp:15.5, dft_tmpf:59.9, max_tmp:20, min_tmp:9},
       {name:"送风", img:"/images/air_wind.png", dft_tmp:25, dft_tmpf:77, max_tmp:33, min_tmp:19},
       {name:"除湿", img:"/images/air_dry.png", dft_tmp:25, dft_tmpf:77, max_tmp:33, min_tmp:17.3},
-      {name:"加湿", img:"/images/air_wet.png", dft_tmp:25, dft_tmpf:77, max_tmp:33, min_tmp:17.3},
+      {name:"加湿", img:"/images/air_wet.png", dft_tmp:23, dft_tmpf:73.4, max_tmp:33, min_tmp:17.3},
       {name:"清风", img:"/images/air_breeze.png", dft_tmp:25.1, dft_tmpf:77.2, max_tmp:33, min_tmp:13},
       {name:"柔风", img:"/images/air_softwind.png", dft_tmp:25.3, dft_tmpf:77.5, max_tmp:33, min_tmp:9}
     ], //各种模式
@@ -33,7 +33,8 @@ Page({
     current_wind_dir: "", //显示风向：blank - 不显示, 不为空时则为鞥想的图片路径
     heat: "&emsp;&emsp;", //显示”辅热“或不显示，默认不显示
     lock: "/images/unlock.png", //显示locked或unlocked的图片，默认为unlocked
-    display: "/images/bulb.png" //显示“数显”图标，控制空调上是否显示内容。
+    display: "/images/bulb.png", //显示“数显”图标，控制空调上是否显示内容。
+    clock: "/images/clock.png" //显示“定时开/定时关"图标。
   },
   //摁“开关”键切换开机和关机
   onPower: function(){
@@ -304,6 +305,10 @@ Page({
         display: this.data.display == "/images/bulb.png"?"":"/images/bulb.png"
       })
     }
+  },
+  //定时开/关
+  onPowerTime(e){
+    var action = e.currentTarget.dataset.action
   },
   /**
    * Lifecycle function--Called when page load

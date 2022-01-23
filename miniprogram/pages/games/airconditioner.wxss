@@ -25,6 +25,13 @@
   right: 80rpx;
 }
 
+.layout5 {
+  display: block;
+  position: absolute;
+  top: 290rpx;
+  left: 80rpx;
+}
+
 .img1 {
   height:80rpx;
   width:80rpx;

@@ -1,10 +1,16 @@
 <!--index.wxml-->
 <view class="container">
   <view class="navigation">
+    <!--今天喝啥茶？-->
+    <view class="navigation-text"bindtap="onTapTea">
+      <text>今天喝啥茶？</text>
+    </view>
     <!--空调小游戏-->
-    <view class="navigation-text" bindtap="onTapAirconditioner">
+    <!--
+<view class="navigation-text" bindtap="onTapAirconditioner">
       <text>空调小游戏</text>
     </view>
+    -->
     <!--YOYO私房菜-->
     <view class="navigation-text" bindtap="onTapMenu">
       <text>YOYO私房菜</text>

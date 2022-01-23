@@ -15,9 +15,14 @@
         <image class="img1" wx:if="{{isOn==true}}" src="{{modes[current_mode_id].img}}"></image>
         <text wx:if="{{isOn==true}}">{{modes[current_mode_id].name}}</text>
         <image class="img1" wx:if="{{isOn==true}}" src="{{lock}}"></image>
-        <view class="layout4">
-          <image class="img1" src="{{display}}"></image>
-        </view>
+        <view class="layout2">
+          <view class="layout4">
+            <image class="img1" src="{{display}}"></image>
+          </view>
+          <view class="layout5">
+            <image class="img1" src="{{clock}}"></image>
+          </view>
+        </view>  
       </view>
       <view class="layout1" wx:if="{{isOn==true}}">
         <view class="layout2">
@@ -75,9 +80,9 @@
     <button bindtap="onChangeUnit" data-unit='F'>°F</button>  
   </view>
   <view class="layout2">
-    <button>定时开</button>
+    <button bindtap="onPowerTime" data-action="on">定时开</button>
     <button bindtap="onLock">锁定</button>
-    <button>定时关</button>
+    <button bindtap="onPowerTime" da-action="off">定时关</button>
   </view>
   <view class="layout2">
     <button>确定</button>

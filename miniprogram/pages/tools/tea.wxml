@@ -1,0 +1,12 @@
+<!--pages/tools/tea.wxml-->
+<!--
+  <button wx:for="{{colorArray}}" wx:key="*this" id="{{item}}" class="btn2" style="background-color:{{item}}" bindtap="setColor"></button>
+      <button class="btn3" style="background-color:{{colorValue}}">
+        <text style="color:{{textColor}}">{{colorValue}}</text>
+      </button>
+-->
+<button wx:for="{{tea_list}}" wx:key="*this" id="{{item}}">{{item}}</button>
+<button class="btn bubble" bindtap="onTapTea">点我选茶</button>
+<view class="txt">
+  <text>{{tea}}</text>
+</view>

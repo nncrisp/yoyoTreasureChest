@@ -15,15 +15,21 @@ Page({
   onShareAppMessage: function () {
   },
   
+  onTapTea: function(){
+    wx.navigateTo({
+      url: '/pages/tools/tea'
+    })
+  },
+
   onTapAirconditioner: function(){
     wx.navigateTo({
-      url: '/pages/games/airconditioner',
+      url: '/pages/games/airconditioner'
     })
   },
 
   onTapMenu: function(){
     wx.navigateTo({
-      url:'/pages/tools/menu',
+      url:'/pages/tools/menu'
     })
   },
 
