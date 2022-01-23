@@ -1,7 +1,7 @@
 /* pages/tools/tea.wxss */
 .btn{
   margin-top: 40rpx;
-  margin-bottom: 40rpx;
+  margin-bottom: 20rpx;
   width: 280rpx;
   border-radius: 10rpx;
   background: -webkit-gradient(linear, 100% 0%, 0% 100%, from(limegreen),to(green));
@@ -31,11 +31,19 @@
   opacity: 1;
   transition: 0s;
  }
- .txt {
+ .layout {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    text-align:center;
    font-size:100rpx;
    background: linear-gradient(to right,green,limegreen);
    -webkit-background-clip: text;
    background-clip: text;
    color: transparent;
+ }
+ .img {
+   width: 400rpx;
+   height: 400rpx;
  }

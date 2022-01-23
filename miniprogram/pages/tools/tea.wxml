@@ -4,9 +4,12 @@
       <button class="btn3" style="background-color:{{colorValue}}">
         <text style="color:{{textColor}}">{{colorValue}}</text>
       </button>
+
+  <button wx:for="{{tea_list}}" wx:key="*this" id="{{item}}">{{item}}</button>
 -->
-<button wx:for="{{tea_list}}" wx:key="*this" id="{{item}}">{{item}}</button>
+<image src="/images/tea.jpeg" bindload="onLoadImage" style="width:{{image.width}}rpx;height={{image.height}}rpx;"></image>
 <button class="btn bubble" bindtap="onTapTea">点我选茶</button>
-<view class="txt">
-  <text>{{tea}}</text>
+<view class="layout">
+  <text>{{tea[0].name}}</text>
+  <image class="img" src="{{tea[0].picture}}"></image>
 </view>
