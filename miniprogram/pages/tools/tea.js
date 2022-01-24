@@ -48,6 +48,7 @@ Page({
   */
   onTapTea: function(){
     var id = Math.floor(Math.random()*this.data.tea_list.length)
+    console.log("id ",id)
     var tea_name = this.data.tea_list[id].name
     let that = this
     wx.cloud.callFunction({

@@ -1,4 +1,11 @@
 /* pages/tools/tea.wxss */
+.layout{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn{
   margin-top: 40rpx;
   margin-bottom: 20rpx;
@@ -31,17 +38,13 @@
   opacity: 1;
   transition: 0s;
  }
- .layout {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+ .txt {
    text-align:center;
    font-size:100rpx;
+   color: transparent;
    background: linear-gradient(to right,green,limegreen);
    -webkit-background-clip: text;
    background-clip: text;
-   color: transparent;
  }
  .img {
    width: 400rpx;
